@@ -31,13 +31,9 @@ public class StringUtils {
     public static String truncateWhenUTF8Strictly(byte[] arrayOfBytes) {
 
         int length = arrayOfBytes.length;
-
         int firstBytePosition = getFirstBytePosition(arrayOfBytes);
-
-        int lastCharLong = 0;
-
+        int lastCharLong;
         Byte lastByte = arrayOfBytes[firstBytePosition];
-
         if (ByteCompareTo(lastByte,(byte)0x80) < 0){
             lastCharLong = 1;
         }
