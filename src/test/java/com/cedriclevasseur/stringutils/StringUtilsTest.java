@@ -1,12 +1,7 @@
 package com.cedriclevasseur.stringutils;
 
 import static com.cedriclevasseur.stringutils.StringUtils.ByteCompareTo;
-import org.junit.After;
-import org.junit.AfterClass;
 import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 
 /**
  *
@@ -27,7 +22,6 @@ public class StringUtilsTest {
         assertEquals("\u2026\u2026\u2026", StringUtils.truncateWhenUTF8Strictly("\u2026\u2026\u2026\u2026\u2026\u2026", 10));
     }
 
-
     @org.junit.Test
     public void testGetFirstBytePosition() {
         assertEquals(-1, StringUtils.getFirstBytePosition(null));
@@ -39,18 +33,18 @@ public class StringUtilsTest {
         assertEquals(1, StringUtils.getFirstBytePosition("aé".getBytes()));
         assertEquals(5, StringUtils.getFirstBytePosition("aééé".getBytes()));
     }
-    
+
     @org.junit.Test
     public void testByteComparison() {
-        
-        assertTrue( ByteCompareTo((byte)0xDD, (byte)0xAA) >0 );
-        assertTrue( ByteCompareTo((byte)0xAA,  (byte)0xDD ) <0 );
-        assertTrue( ByteCompareTo((byte)0xDD,  (byte)0xDD ) ==0 );
+
+        assertTrue(ByteCompareTo((byte) 0xDD, (byte) 0xAA) > 0);
+        assertTrue(ByteCompareTo((byte) 0xAA, (byte) 0xDD) < 0);
+        assertTrue(ByteCompareTo((byte) 0xDD, (byte) 0xDD) == 0);
     }
-    
-        @org.junit.Test
+
+    @org.junit.Test
     public void testTruncateWhenUTF8() {
-        
+
         assertEquals("éeéé\u2025", StringUtils.truncateWhenUTF8("éeéééééée", 10));
     }
 }
