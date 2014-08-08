@@ -46,6 +46,11 @@ public class StringUtilsTest {
         assertTrue( ByteCompareTo((byte)0xDD, (byte)0xAA) >0 );
         assertTrue( ByteCompareTo((byte)0xAA,  (byte)0xDD ) <0 );
         assertTrue( ByteCompareTo((byte)0xDD,  (byte)0xDD ) ==0 );
+    }
+    
+        @org.junit.Test
+    public void testTruncateWhenUTF8() {
         
+        assertEquals("éeéé\u2025", StringUtils.truncateWhenUTF8("éeéééééée", 10));
     }
 }
